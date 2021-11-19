@@ -1,39 +1,39 @@
 package com.SoftwareQuality.Projet_syllabus;
 
 public class User {
-    private String FirstName;
-    private String LastName;
-    private String Email;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     //constructeur
-    public User(String FirstName, String LastName, String Email) {
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.Email = Email;
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     //getters et setters
     public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+        this.firstName = FirstName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return FirstName;
+        return lastName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 }

@@ -3,30 +3,30 @@ package com.SoftwareQuality.Projet_syllabus;
 import java.util.ArrayList;
 
 public class Teacher extends User {
-    private String Trigramme;
-    private ArrayList<Course> Courses;
+    private String trigramme;
+    private ArrayList<Course> courses;
 
     //constructor
-    public Teacher(String FirstName, String LastName, String Email, String Trigramme, ArrayList<Course> Courses) {
-        super(FirstName, LastName, Email);
-        this.Trigramme = Trigramme;
-        this.Courses = Courses;
+    public Teacher(String firstName, String lastName, String email, String trigramme, ArrayList<Course> courses) {
+        super(firstName, lastName, email);
+        this.trigramme = trigramme;
+        this.courses = courses;
     }
 
     //getters and setters
-    public void setTrigramme(String Trigramme) {
-        this.Trigramme = Trigramme;
+    public void setTrigramme(String trigramme) {
+        this.trigramme = trigramme;
     }
 
-    public void setCourses(ArrayList<Course> Courses) {
-        this.Courses = Courses;
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 
     public String getTrigramme() {
-        return Trigramme;
+        return trigramme;
     }
 
     public ArrayList<Course> getCourses() {
-        return Courses;
+        return courses;
     }
 }
