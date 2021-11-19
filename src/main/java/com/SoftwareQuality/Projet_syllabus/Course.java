@@ -10,8 +10,16 @@ public class Course {
     private String academic_year;
     private ArrayList<Document> syllabi;
 
-    //constructeur
-    public Course(String name, Teacher teacher, String UE, ArrayList<Student> students, String academic_year, ArrayList<Document> syllabi){
+    /**
+     * Constructor of the Course object
+     * @param name name of the course
+     * @param teachers name of the teachers of the course
+     * @param UE name of the UE of the course
+     * @param students list of the students following the course
+     * @param academic_year current academic year
+     * @param syllabi list of all document od the course
+     */
+    public Course(String name, ArrayList<Teacher> teachers, String UE, ArrayList<Student> students, String academic_year, ArrayList<Document> syllabi){
         this.name = name;
         this.teachers = teachers;
         this.UE = UE;
