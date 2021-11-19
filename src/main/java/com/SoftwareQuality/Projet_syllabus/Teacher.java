@@ -1,5 +1,7 @@
 package com.SoftwareQuality.Projet_syllabus;
 
+import java.util.ArrayList;
+
 public class Teacher extends User {
     private String Trigramme;
     private ArrayList<Course> Courses;
