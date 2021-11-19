@@ -71,4 +71,29 @@ public class Course {
     }
     //fin des getters et des setters
 
+    /**
+     * method to add a teacher to the Course
+    @param teacher  teacher to add into the teachers list of the course
+     */
+    public void addTeacher(Teacher teacher){
+        this.teachers.add(teacher);
+    }
+
+    /**
+     * method to add a student to the course
+     * @param student student to add into the students list of the course
+     */
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
+    /**
+     * method to add a syllabus to the syllabi's list of the course
+     * @param syllabus document to add into the syllabi's list of the course
+     */
+    public void addSyllabus(Document syllabus){
+        this.syllabi.add(syllabus);
+    }
+
+
 }
