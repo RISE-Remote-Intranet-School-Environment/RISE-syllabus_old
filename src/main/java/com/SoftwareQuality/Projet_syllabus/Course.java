@@ -1,11 +1,10 @@
 package com.SoftwareQuality.Projet_syllabus;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Course {
     private String name;
-    private Teacher teacher;
+    private ArrayList<Teacher> teachers;
     private String UE;
     private ArrayList<Student> students;
     private String academic_year;
@@ -14,7 +13,7 @@ public class Course {
     //constructeur
     public Course(String name, Teacher teacher, String UE, ArrayList<Student> students, String academic_year, ArrayList<Document> syllabi){
         this.name = name;
-        this.teacher = teacher;
+        this.teachers = teachers;
         this.UE = UE;
         this.students = students;
         this.academic_year = academic_year;
@@ -27,8 +26,8 @@ public class Course {
         return name;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public ArrayList<Teacher> getTeachers() {
+        return teachers;
     }
 
     public ArrayList<Student> getStudents() {
@@ -51,8 +50,8 @@ public class Course {
         this.name = name;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeachers(ArrayList<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     public void setStudents(ArrayList<Student> students) {
