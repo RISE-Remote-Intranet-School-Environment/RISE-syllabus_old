@@ -6,7 +6,14 @@ public class Student extends User{
     private int matricule;
     private ArrayList<Course> PAE;
 
-    //constructeur
+    /**
+     * Constructor of student object
+     * @param FirstName Student FirstName
+     * @param LastName Student LastName
+     * @param Email Student Email
+     * @param matricule Student maticule
+     * @param PAE Student PAE
+     */
     public Student(String FirstName, String LastName, String Email,int matricule,ArrayList<Course> PAE) {
         super(FirstName, LastName, Email);
         this.matricule = matricule;
@@ -31,4 +38,11 @@ public class Student extends User{
     }
     //fin des getters et des setters
 
+    /**
+     * method to add a course to the PAE of the student
+     * @param course course to add
+     */
+    public void addCourseToPAE(Course course){
+        this.PAE.add(course);
+    }
 }

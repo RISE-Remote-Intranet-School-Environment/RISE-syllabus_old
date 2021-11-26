@@ -12,12 +12,12 @@ public class Course {
 
     /**
      * Constructor of the Course object
-     * @param name name of the course
+     * @param name course name
      * @param teachers name of the teachers of the course
      * @param UE name of the UE of the course
-     * @param students list of the students following the course
+     * @param students list of the students subscribed to the course
      * @param academic_year current academic year
-     * @param syllabi list of all document od the course
+     * @param syllabi list of all documents included in the course
      */
     public Course(String name, ArrayList<Teacher> teachers, String UE, ArrayList<Student> students, String academic_year, ArrayList<Document> syllabi){
         this.name = name;
@@ -80,8 +80,8 @@ public class Course {
     //fin des getters et des setters
 
     /**
-     * method to add a teacher to the Course
-    @param teacher  teacher to add into the teachers list of the course
+     * method to add a teacher to the course
+    @param teacher teacher to add into the course's teachers list
      */
     public void addTeacher(Teacher teacher){
         this.teachers.add(teacher);
@@ -89,15 +89,15 @@ public class Course {
 
     /**
      * method to add a student to the course
-     * @param student student to add into the students list of the course
+     * @param student student to add into the course's students list
      */
     public void addStudent(Student student){
         this.students.add(student);
     }
 
     /**
-     * method to add a syllabus to the syllabi's list of the course
-     * @param syllabus document to add into the syllabi's list of the course
+     * method to add a syllabus to the course's syllabi list
+     * @param syllabus document to add into the course's syllabi list
      */
     public void addSyllabus(Document syllabus){
         this.syllabi.add(syllabus);
