@@ -27,4 +27,8 @@ public class Order {
     public void addSyllabus(Document syllabus){
         this.syllabi.add(syllabus);
     }
+
+    public void generateOrder(){
+
+    }
 }
