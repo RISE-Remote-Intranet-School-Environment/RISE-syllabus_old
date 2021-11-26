@@ -1,6 +1,7 @@
 package com.SoftwareQuality.Projet_syllabus;
 
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,13 +20,15 @@ public class Document {
      * @param pages number of pages
      * @param version version of the syllabus
      */
-    public Document(String name, ArrayList<String> author, Date publish_date, int pages,String version){
+    public Document(String name, ArrayList<String> author, Date publish_date, int pages,String version) throws SQLException {
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
         this.pages = pages;
         this.version = version;
         this.ID = name + "_" + version;
+        Database db = new Database();
+        db.addDocument(this);
     }
 
     //getters et setters de la classe
