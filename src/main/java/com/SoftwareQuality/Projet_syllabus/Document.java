@@ -66,4 +66,14 @@ public class Document {
         this.ID = ID;
     }
     //fin des getters et setters
+
+    /**
+     * method to generate a String for mySQL querry to add documnt to db
+     * @return string for query sql to add document
+     */
+    public String toString(){
+        String doc = "";
+        doc = doc + name + "," + author + "," + publish_date.toString() + "," + String.valueOf(pages) + "," + version + "," + ID;
+        return doc;
+    }
 }
