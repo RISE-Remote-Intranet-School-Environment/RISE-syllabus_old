@@ -21,7 +21,10 @@ public class Database{
         con.close();
         return rs;
     }
-
+    public void addDocument(Document document) throws SQLException{
+        Statement stmt=con.createStatement();
+        stmt.executeQuery("INSERT INTO `table_name`(Name,Author,Publish_Date,Pages,Version,ID) VALUES ();");
+    }
 
 }
 
