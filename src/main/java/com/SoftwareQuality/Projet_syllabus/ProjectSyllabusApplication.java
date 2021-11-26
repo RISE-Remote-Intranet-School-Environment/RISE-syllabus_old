@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.SQLException;
 
 @SpringBootApplication
-public class ProjetSyllabusApplication {
+public class ProjectSyllabusApplication {
 
-	public ProjetSyllabusApplication()  {
+	public ProjectSyllabusApplication()  {
 	}
 
 	public static void main(String[] args) throws SQLException {
-		SpringApplication.run(ProjetSyllabusApplication.class, args);
+		SpringApplication.run(ProjectSyllabusApplication.class, args);
 		Database db = new Database();
 		db.getData("document");
 	}
