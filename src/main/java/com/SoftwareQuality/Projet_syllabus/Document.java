@@ -1,15 +1,22 @@
 package com.SoftwareQuality.Projet_syllabus;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Document {
     private String name;
-    private String author;
+    private ArrayList<String> author;
     private Date publish_date;
     private int pages;
-
-    //constructeur
-    public Document(String name, String author, Date publish_date, int pages){
+    /**
+     * Constructor of Document object
+     * @param name document name
+     * @param author authors name
+     * @param publish_date publish date
+     * @param pages number of pages
+     */
+    public Document(String name, ArrayList<String> author, Date publish_date, int pages){
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
@@ -20,7 +27,7 @@ public class Document {
     public String getName() {
         return name;
     }
-    public String getAuthor() {
+    public ArrayList<String> getAuthor() {
         return author;
     }
     public Date getPublish_date() {
@@ -32,7 +39,7 @@ public class Document {
     public void setName(String name) {
         this.name = name;
     }
-    public void setAuthor(String author) {
+    public void setAuthor(ArrayList<String> author) {
         this.author = author;
     }
     public void setPublish_date(Date publish_date) {
