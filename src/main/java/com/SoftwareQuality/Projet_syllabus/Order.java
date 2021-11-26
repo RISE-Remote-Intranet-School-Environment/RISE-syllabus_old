@@ -2,6 +2,9 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import javax.print.Doc;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONObject;
 
 public class Order {
     private int orderID;
@@ -28,7 +31,22 @@ public class Order {
         this.syllabi.add(syllabus);
     }
 
-    public void generateOrder(){
-
+    /**
+     * method to generate a Json file with an order for a student
+     */
+    public void generateOrderForStudent(){
+        //Creating a JSONObject object
+        JSONObject jsonObject = new JSONObject();
+        //Inserting key-value pairs into the json object
+        jsonObject.put("First_Name", this.student.getFirstName());
+        jsonObject.put("Last_Name", this.student.getLastName());
+        jsonObject.put("matricule", this.student.getMatricule());
+        for(int i = 0;i<this.syllabi.size();i++){
+            String key = "doc_"+ String.valueOf(i);
+            String value = this.syllabi.get(i).getID();
+            jsonObject.put(key,value);
+        }
     }
+
+
 }
