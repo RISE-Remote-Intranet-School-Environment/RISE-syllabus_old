@@ -25,7 +25,7 @@ public class Order {
 
     /**
      * method to add a syllabus to the order
-     * @param syllabus
+     * @param syllabus syllabus to be added
      */
     public void addSyllabus(Document syllabus){
         this.syllabi.add(syllabus);
@@ -40,7 +40,7 @@ public class Order {
         //Inserting key-value pairs into the json object
         jsonObject.put("First_Name", this.student.getFirstName());
         jsonObject.put("Last_Name", this.student.getLastName());
-        jsonObject.put("matricule", this.student.getMatricule());
+        jsonObject.put("studentID", this.student.getStudentID());
         for(int i = 0;i<this.syllabi.size();i++){
             String key = "doc_"+ String.valueOf(i);
             String value = this.syllabi.get(i).getID();
