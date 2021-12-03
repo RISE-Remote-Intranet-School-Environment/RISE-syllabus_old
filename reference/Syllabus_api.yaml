@@ -4,7 +4,7 @@ info:
   version: '1.0'
   termsOfService: 'https://github.com/smarbal/syllabus-webservice.git'
 servers:
-  - url: 'https://api.ecam.be/syllabus-system'
+  - url: 'https://api.ecam.be/syllabus-webservice'
 paths:
   '/Course/{name}':
     parameters:
