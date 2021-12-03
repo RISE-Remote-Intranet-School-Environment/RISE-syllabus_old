@@ -328,6 +328,30 @@ paths:
       responses:
         '200':
           description: OK
+  '/Course/{name}/name':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-Course-name-name
+    put:
+      summary: ''
+      operationId: put-Course-name-name
+      responses:
+        '200':
+          description: |
+            The created or updated reaction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+      description: Set name for course
 components:
   schemas:
     Course:
