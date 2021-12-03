@@ -2,12 +2,16 @@ openapi: 3.1.0
 info:
   title: Syllabus_api
   version: '1.0'
+  termsOfService: 'https://github.com/smarbal/syllabus-webservice.git'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://api.ecam.be/syllabus-system'
 paths:
-  /users:
-    parameters: []
-  /user: {}
+  /course:
+    get:
+      summary: course
+      tags: []
+      responses: {}
+      operationId: get-course
 components:
   schemas:
     Course:
@@ -30,6 +34,16 @@ components:
         syllabi:
           type: array
           items: {}
+      examples:
+        - '': string
+          teachers:
+            - null
+          UE: string
+          students:
+            - null
+          academic_year: string
+          syllabi:
+            - null
     Document:
       title: Document
       type: object
