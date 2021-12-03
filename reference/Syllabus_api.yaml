@@ -211,11 +211,6 @@ paths:
         name: name
         in: path
         required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-Cours-name-Teacher
     post:
       summary: ''
       operationId: post-Cours-name-Teacher
@@ -249,11 +244,6 @@ paths:
         name: name
         in: path
         required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: ''
     post:
       summary: ''
       operationId: post-Course-name-Student
@@ -289,39 +279,6 @@ paths:
         name: name
         in: path
         required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: New post created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type:
-                  - string
-                  - 'null'
-      operationId: get-Course-name-Syllabus
-      description: Add new syllabus for a course
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Course'
     post:
       summary: ''
       operationId: post-Course-name-Syllabus
@@ -335,11 +292,6 @@ paths:
         name: name
         in: path
         required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-Course-name-name
     put:
       summary: ''
       operationId: put-Course-name-name
@@ -358,6 +310,16 @@ components:
       title: Course
       type: object
       description: Course class
+      examples:
+        - '': string
+          teachers:
+            - null
+          UE: string
+          students:
+            - null
+          academic_year: string
+          syllabi:
+            - null
       properties:
         '':
           type: string
@@ -374,16 +336,8 @@ components:
         syllabi:
           type: array
           items: {}
-      examples:
-        - '': string
-          teachers:
-            - null
-          UE: string
-          students:
-            - null
-          academic_year: string
-          syllabi:
-            - null
+      required:
+        - UE
     Document:
       title: Document
       type: object
