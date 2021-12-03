@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.tomcat.jni.Local;
 import org.json.simple.JSONObject;
@@ -43,6 +44,15 @@ public class Order {
         this.price = price;
         this.orderDate = LocalDateTime.now();
     }
+
+    public void saveOrder() throws SQLException{
+        DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
+        String date = dtf.format(this.orderDate);
+        //System.out.println("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+","+this.state+");");
+        Statement stmt= db.con.createStatement();
+        stmt.executeUpdate("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+",'"+this.state+"');");
+    }
+
 
     /**
      * method to add a syllabus to the order
