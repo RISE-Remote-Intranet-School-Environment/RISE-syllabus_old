@@ -1,31 +1,33 @@
 package com.SoftwareQuality.Projet_syllabus;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
+
 public class Course {
+    private  String id;
     private String name;
-    private ArrayList<Teacher> teachers;
+    private int teacher;
     private String UE;
-    private ArrayList<Student> students;
     private String academic_year;
-    private ArrayList<Document> syllabi;
+    private ArrayList<Document> documents;
 
     /**
      * Constructor of the Course object
      * @param name course name
-     * @param teachers name of the teachers of the course
      * @param UE name of the UE of the course
-     * @param students list of the students subscribed to the course
      * @param academic_year current academic year
-     * @param syllabi list of all documents included in the course
+     * @param documents list of all documents included in the course
      */
-    public Course(String name, ArrayList<Teacher> teachers, String UE, ArrayList<Student> students, String academic_year, ArrayList<Document> syllabi){
+    public Course(String name, int teacher,  String UE, String academic_year, ArrayList<Document> documents){
+        this.id = id;
         this.name = name;
-        this.teachers = teachers;
+        this.teacher = teacher;
         this.UE = UE;
-        this.students = students;
         this.academic_year = academic_year;
-        this.syllabi = syllabi;
+        this.documents = documents;
     }
 
     //getters et setters
@@ -34,13 +36,6 @@ public class Course {
         return name;
     }
 
-    public ArrayList<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
 
     public String getUE() {
         return UE;
@@ -51,19 +46,11 @@ public class Course {
     }
 
     public ArrayList<Document> getSyllabi() {
-        return syllabi;
+        return documents;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTeachers(ArrayList<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
     }
 
     public void setUE(String UE) {
@@ -75,32 +62,40 @@ public class Course {
     }
 
     public void setSyllabi(ArrayList<Document> syllabi) {
-        this.syllabi = syllabi;
+        this.documents = syllabi;
     }
+
+    public int getTeacher() {return teacher;}
+
+    public void setTeacher(int teacher) {this.teacher = teacher;}
     //fin des getters et des setters
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
 
     /**
      * method to add a teacher to the course
     @param teacher teacher to add into the course's teachers list
      */
-    public void addTeacher(Teacher teacher){
-        this.teachers.add(teacher);
-    }
 
     /**
      * method to add a student to the course
      * @param student student to add into the course's students list
      */
-    public void addStudent(Student student){
-        this.students.add(student);
-    }
-
     /**
      * method to add a syllabus to the course's syllabi list
-     * @param syllabus document to add into the course's syllabi list
+     * @param document document to add into the course's syllabi list
      */
-    public void addSyllabus(Document syllabus){
-        this.syllabi.add(syllabus);
+    public void addDocument(Document document) throws SQLException {
+        this.documents.add(document);
+        Statement stmt= db.con.createStatement();
+        stmt.executeQuery("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
+    }
+    public void deleteDocument(Document document){
+
+    }
+    public void saveSyllabus() throws SQLException {
+
     }
 
 

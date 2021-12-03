@@ -3,7 +3,7 @@ package com.SoftwareQuality.Projet_syllabus;
 import java.sql.*;
 
 public class Database{
-    private Connection con;
+    public Connection con;
 
     /**
      * Constructor of the Database object

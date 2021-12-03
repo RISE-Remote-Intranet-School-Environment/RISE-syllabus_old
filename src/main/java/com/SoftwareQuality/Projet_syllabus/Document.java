@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
+
 public class Document {
     private String name;
     private ArrayList<String> author;
@@ -21,14 +23,14 @@ public class Document {
      * @param pages number of pages
      * @param version version of the syllabus
      */
-    public Document(String name, ArrayList<String> author, Date publish_date, int pages,String version) throws SQLException {
+    public Document(String name, ArrayList<String> author, Date publish_date, int pages,String version, float price) throws SQLException {
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
         this.pages = pages;
         this.version = version;
         this.ID = name + "_" + version;
-        Database db = new Database();
+        this.price = price;
         db.addDocument(this);
     }
 
@@ -69,6 +71,7 @@ public class Document {
     public void setID(String ID) {
         this.ID = ID;
     }
+    public float getPrice() {return this.price;}
     //fin des getters et setters
 
     /**

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 @SpringBootApplication
 public class ProjectSyllabusApplication {
-
+	public static Database db = new Database();
 	public ProjectSyllabusApplication()  {
 	}
 
