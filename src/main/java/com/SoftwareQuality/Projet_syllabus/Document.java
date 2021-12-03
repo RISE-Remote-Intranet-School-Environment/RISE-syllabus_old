@@ -49,9 +49,7 @@ public class Document {
         while (rs.next()) {
             this.ID = rs.getInt(1);
             this.name = rs.getString(2);
-            ArrayList<String> author = new ArrayList<>();
-            author.add(rs.getString(3));
-            this.author = author;
+            this.author = rs.getString(3);
             this.publish_date = LocalDate.parse(rs.getString(4), DateTimeFormatter.BASIC_ISO_DATE);
             this.pages = rs.getInt(5);
             this.version = rs.getString(6);

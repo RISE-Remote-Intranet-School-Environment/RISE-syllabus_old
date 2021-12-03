@@ -13,9 +13,11 @@ public class ProjectSyllabusApplication {
 
 	public static void main(String[] args) throws SQLException {
 		SpringApplication.run(ProjectSyllabusApplication.class, args);
-		Course cours = new Course();
-		cours.setId("4");
-		cours.fetchDocuments();
+		//Course cours = new Course();
+		//cours.setId("4");
+		//cours.fetchDocuments();
+
+		db.printWaitingOrders();
 	}
 
 }
