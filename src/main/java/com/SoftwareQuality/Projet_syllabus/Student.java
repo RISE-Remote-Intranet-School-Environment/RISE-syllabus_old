@@ -3,7 +3,7 @@ package com.SoftwareQuality.Projet_syllabus;
 import java.util.ArrayList;
 
 public class Student extends User{
-    private int matricule;
+    private int studentID;
     private ArrayList<Course> PAE;
 
     /**
@@ -11,26 +11,26 @@ public class Student extends User{
      * @param FirstName Student FirstName
      * @param LastName Student LastName
      * @param Email Student Email
-     * @param matricule Student maticule
+     * @param studentID Student studentID
      * @param PAE Student PAE
      */
-    public Student(String FirstName, String LastName, String Email,int matricule,ArrayList<Course> PAE) {
+    public Student(String FirstName, String LastName, String Email,int studentID,ArrayList<Course> PAE) {
         super(FirstName, LastName, Email);
-        this.matricule = matricule;
+        this.studentID = studentID;
         this.PAE = PAE;
     }
 
     //getters et setters
-    public int getMatricule() {
-        return matricule;
+    public int getStudentID() {
+        return studentID;
     }
 
     public ArrayList<Course> getPAE() {
         return PAE;
     }
 
-    public void setMatricule(int matricule) {
-        this.matricule = matricule;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
     }
 
     public void setPAE(ArrayList<Course> PAE) {
