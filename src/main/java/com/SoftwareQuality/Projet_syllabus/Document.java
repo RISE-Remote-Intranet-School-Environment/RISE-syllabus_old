@@ -2,9 +2,11 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import java.lang.reflect.Array;
 import java.sql.SQLException;
+
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.*;
@@ -13,7 +15,7 @@ import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 
 public class Document {
     private String name;
-    private ArrayList<String> author;
+    private String author;
     private LocalDate publish_date;
     private int pages;
     private String version;
@@ -27,7 +29,8 @@ public class Document {
      * @param pages number of pages
      * @param version version of the syllabus
      */
-    public Document(String name, ArrayList<String> author, LocalDate publish_date, int pages,String version, float price, int ID) throws SQLException {
+
+    public Document(String name, String author, LocalDate publish_date, int pages,String version, float price) throws SQLException {
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
@@ -35,7 +38,6 @@ public class Document {
         this.version = version;
         this.ID = ID;
         this.price = price;
-        db.addDocument(this);
     }
     /**
      * constructor of Document object from the database
@@ -61,7 +63,7 @@ public class Document {
     public String getName() {
         return name;
     }
-    public ArrayList<String> getAuthor() {
+    public String getAuthor() {
         return author;
     }
     public LocalDate getPublish_date() {
@@ -79,7 +81,7 @@ public class Document {
     public void setName(String name) {
         this.name = name;
     }
-    public void setAuthor(ArrayList<String> author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
     public void setPublish_date(LocalDate publish_date) {
