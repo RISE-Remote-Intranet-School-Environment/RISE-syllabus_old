@@ -63,7 +63,7 @@ public class Order {
         jsonObject.put("studentID", this.student.getStudentID());
         for(int i = 0;i<this.syllabi.size();i++){
             String key = "doc_"+ String.valueOf(i);
-            String value = this.syllabi.get(i).getID();
+            int value = this.syllabi.get(i).getID();
             jsonObject.put(key,value);
         }
     }
