@@ -12,6 +12,7 @@ public class Document {
     private int pages;
     private String version;
     private String ID;
+    private float price;
     /**
      * Constructor of Document object
      * @param name document name
