@@ -1,9 +1,11 @@
 package com.SoftwareQuality.Projet_syllabus;
 
 import javax.print.Doc;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 
 import org.apache.tomcat.jni.Local;
 import org.json.simple.JSONObject;
@@ -26,14 +28,14 @@ public class Order {
      * @param student student making the order
      * @param syllabus syllabus ordered in this order
      * @param price total price of the order
-     * @param state state of the order (printed,ordered,ready to pick up)
+     * @param state state of the order (attente, traitement, imprimée, livrée)
      * the orderDate is the date of when the order was created to format it we'll use :
      *              import java.time.format.DateTimeFormatter;
      *
      *              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
      *              dtf.format(orderDate)
      */
-    public Order(int orderID, Student student, ArrayList<Document> syllabus,float price, String state){
+    public Order(int orderID, Student student, ArrayList<Document> syllabus, float price, String state){
         this.orderID = orderID;
         this.student = student;
         this.syllabi = syllabus;
@@ -49,6 +51,17 @@ public class Order {
     public void addSyllabus(Document syllabus){
         this.syllabi.add(syllabus);
         this.price += syllabus.getPrice();
+    }
+
+    /**
+     * @param orderID Order to be modified
+     * @param desiredState Order's state to update
+     * @throws SQLException
+     */
+    public void updateState(int orderID, String desiredState) throws SQLException{
+        this.state = desiredState;
+        Statement stmt= db.con.createStatement();
+        stmt.executeUpdate("UPDATE orders SET state = '"+desiredState+"' WHERE orderID = "+String.valueOf(orderID)+";");
     }
 
     /**
