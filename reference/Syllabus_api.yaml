@@ -204,6 +204,130 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
+  '/Course/{name}/Teacher':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-Cours-name-Teacher
+    post:
+      summary: ''
+      operationId: post-Cours-name-Teacher
+      responses:
+        '200':
+          description: New Post Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          description: Missing argument
+          content:
+            application/json:
+              schema:
+                type: 'null'
+        '404':
+          description: |
+            Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+      description: Add new Teacher for a course
+  '/Course/{name}/Student':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: ''
+    post:
+      summary: ''
+      operationId: post-Course-name-Student
+      responses:
+        '200':
+          description: New post created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          description: Missing argument
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+        '404':
+          description: |
+            Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - string
+                  - 'null'
+      description: Add new Student for a course
+  '/Course/{name}/Syllabus':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: New post created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type:
+                  - string
+                  - 'null'
+      operationId: get-Course-name-Syllabus
+      description: Add new syllabus for a course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+    post:
+      summary: ''
+      operationId: post-Course-name-Syllabus
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     Course:
