@@ -7,14 +7,15 @@ import java.sql.SQLException;
 
 @SpringBootApplication
 public class ProjectSyllabusApplication {
-
+	public static Database db = new Database();
 	public ProjectSyllabusApplication()  {
 	}
 
 	public static void main(String[] args) throws SQLException {
 		SpringApplication.run(ProjectSyllabusApplication.class, args);
-		Database db = new Database();
-		db.getData("document");
+		Course cours = new Course();
+		cours.setId("4");
+		cours.fetchDocuments();
 	}
 
 }

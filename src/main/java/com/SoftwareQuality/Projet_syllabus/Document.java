@@ -2,13 +2,16 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
+
 public class Document {
     private String name;
-    private ArrayList<String> author;
-    private Date publish_date;
+    private String author;
+    private LocalDate publish_date;
     private int pages;
     private String version;
     private String ID;
@@ -21,25 +24,24 @@ public class Document {
      * @param pages number of pages
      * @param version version of the syllabus
      */
-    public Document(String name, ArrayList<String> author, Date publish_date, int pages,String version) throws SQLException {
+    public Document(String name, String author, LocalDate publish_date, int pages,String version, float price) throws SQLException {
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
         this.pages = pages;
         this.version = version;
         this.ID = name + "_" + version;
-        Database db = new Database();
-        db.addDocument(this);
+        this.price = price;
     }
 
     //getters et setters de la classe
     public String getName() {
         return name;
     }
-    public ArrayList<String> getAuthor() {
+    public String getAuthor() {
         return author;
     }
-    public Date getPublish_date() {
+    public LocalDate getPublish_date() {
         return publish_date;
     }
     public int getPages() {
@@ -54,10 +56,10 @@ public class Document {
     public void setName(String name) {
         this.name = name;
     }
-    public void setAuthor(ArrayList<String> author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
-    public void setPublish_date(Date publish_date) {
+    public void setPublish_date(LocalDate publish_date) {
         this.publish_date = publish_date;
     }
     public void setPages(int pages) {
@@ -69,6 +71,7 @@ public class Document {
     public void setID(String ID) {
         this.ID = ID;
     }
+    public float getPrice() {return this.price;}
     //fin des getters et setters
 
     /**

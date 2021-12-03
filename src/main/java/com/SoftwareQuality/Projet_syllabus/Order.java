@@ -9,6 +9,7 @@ import org.apache.tomcat.jni.Local;
 import org.json.simple.JSONObject;
 import java.util.Date;
 import java.time.LocalDateTime;
+import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 
 public class Order {
     private int orderID;
@@ -47,6 +48,7 @@ public class Order {
      */
     public void addSyllabus(Document syllabus){
         this.syllabi.add(syllabus);
+        this.price += syllabus.getPrice();
     }
 
     /**
