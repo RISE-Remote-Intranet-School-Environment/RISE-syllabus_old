@@ -6,12 +6,204 @@ info:
 servers:
   - url: 'https://api.ecam.be/syllabus-system'
 paths:
-  /course:
+  '/Course/{name}':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
     get:
-      summary: course
+      summary: Your GET endpoint
       tags: []
-      responses: {}
-      operationId: get-course
+      responses:
+        '200':
+          description: Name Found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+      operationId: get-Course-CourseID
+      description: Get course name.
+      parameters: []
+  '/Document/{name}':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Post Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: |
+            Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+      operationId: get-Document-name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      parameters: []
+      description: Get Document name
+  '/Order/{orderID}':
+    parameters:
+      - schema:
+          type: string
+        name: orderID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Post Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          description: |
+            Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - integer
+      operationId: get-Order-orderID
+      description: Get order ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+  '/Student/{studentID}':
+    parameters:
+      - schema:
+          type: string
+        name: studentID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Post Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '404':
+          description: |
+            Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - integer
+                  - 'null'
+      operationId: get-Student-studentID
+      description: Get Student ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+  '/Teacher/{trigram}':
+    parameters:
+      - schema:
+          type: string
+        name: trigram
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Post Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '404':
+          description: Requested object was not found in our database
+          content:
+            application/json:
+              schema:
+                type:
+                  - 'null'
+                  - string
+      operationId: get-Teacher-trigram
+      description: Get Teacher Trigram
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+  '/User/{firstName}':
+    parameters:
+      - schema:
+          type: string
+        name: firstName
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Post Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type:
+                  - string
+                  - 'null'
+      operationId: get-User-firstName
+      description: Get User FirstName
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
 components:
   schemas:
     Course:
