@@ -33,3 +33,4 @@ build/
 .vscode/
 
 src/main/resources/db_connector.json
+src/main/java/com/SoftwareQuality/Projet_syllabus/Secret.java

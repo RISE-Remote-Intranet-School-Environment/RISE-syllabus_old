@@ -10,8 +10,9 @@ public class Database{
      */
     public  Database(){
         try{
+            Secret secret = new Secret();
             this.con=DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3306/syllabus","root","password");
+                    secret.host, secret.user, secret.password);
 
         }
         catch(Exception e){ System.out.println(e);}
