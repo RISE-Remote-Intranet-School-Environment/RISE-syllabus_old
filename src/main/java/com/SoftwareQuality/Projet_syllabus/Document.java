@@ -2,9 +2,14 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import java.lang.reflect.Array;
 import java.sql.SQLException;
+
+import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.sql.*;
 
 import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 
@@ -14,7 +19,7 @@ public class Document {
     private LocalDate publish_date;
     private int pages;
     private String version;
-    private String ID;
+    private int ID;
     private float price;
     /**
      * Constructor of Document object
@@ -24,14 +29,34 @@ public class Document {
      * @param pages number of pages
      * @param version version of the syllabus
      */
+
     public Document(String name, String author, LocalDate publish_date, int pages,String version, float price) throws SQLException {
         this.name = name;
         this.author = author;
         this.publish_date = publish_date;
         this.pages = pages;
         this.version = version;
-        this.ID = name + "_" + version;
+        this.ID = ID;
         this.price = price;
+    }
+    /**
+     * constructor of Document object from the database
+     */
+    public Document (int ID) throws SQLException{
+        String table = "document";
+        Statement stmt = db.con.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from " + table + " where documentId="+ID+";");
+        while (rs.next()) {
+            this.ID = rs.getInt(1);
+            this.name = rs.getString(2);
+            ArrayList<String> author = new ArrayList<>();
+            author.add(rs.getString(3));
+            this.author = author;
+            this.publish_date = LocalDate.parse(rs.getString(4), DateTimeFormatter.BASIC_ISO_DATE);
+            this.pages = rs.getInt(5);
+            this.version = rs.getString(6);
+            this.price = Float.parseFloat(rs.getString(7));
+        }
     }
 
     //getters et setters de la classe
@@ -50,7 +75,7 @@ public class Document {
     public String getVersion() {
         return version;
     }
-    public String getID() {
+    public int getID() {
         return ID;
     }
     public void setName(String name) {
@@ -68,7 +93,7 @@ public class Document {
     public void setVersion(String version) {
         this.version = version;
     }
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
     public float getPrice() {return this.price;}

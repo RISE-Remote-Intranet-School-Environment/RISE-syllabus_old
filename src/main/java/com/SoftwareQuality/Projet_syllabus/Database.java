@@ -42,6 +42,5 @@ public class Database{
         Statement stmt=con.createStatement();
         stmt.executeQuery("INSERT INTO `table_name`(Name,Author,Publish_Date,Pages,Version,ID) VALUES ("+document.toString()+");");
     }
-
 }
 
