@@ -30,3 +30,65 @@ components:
         syllabi:
           type: array
           items: {}
+    Document:
+      title: Document
+      type: object
+      description: Classe Document
+      properties:
+        name:
+          type: string
+        author:
+          type: array
+          items: {}
+        publish_date:
+          type: number
+        pages:
+          type: integer
+    Order:
+      title: Order
+      type: object
+      description: Classe Order
+      properties:
+        orderID:
+          type: integer
+        student: {}
+        syllabi:
+          type: array
+          items: {}
+        orderDate: {}
+        price:
+          type: number
+        state:
+          type: string
+        '':
+          type: string
+    Student:
+      title: Student
+      type: object
+      description: 'Classe Student extends User '
+      properties:
+        studentID:
+          type: integer
+        PAE:
+          type: array
+          items: {}
+    Teacher:
+      title: Teacher
+      type: object
+      description: Classe Teacher extends User
+      properties:
+        trigram:
+          type: string
+        courses:
+          type: array
+          items: {}
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
