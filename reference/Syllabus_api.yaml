@@ -30,3 +30,35 @@ components:
         syllabi:
           type: array
           items: {}
+    Document:
+      title: Document
+      type: object
+      description: Classe Document
+      properties:
+        name:
+          type: string
+        author:
+          type: array
+          items: {}
+        publish_date:
+          type: number
+        pages:
+          type: integer
+    Order:
+      title: Order
+      type: object
+      description: Classe Order
+      properties:
+        orderID:
+          type: integer
+        student: {}
+        syllabi:
+          type: array
+          items: {}
+        orderDate: {}
+        price:
+          type: number
+        state:
+          type: string
+        '':
+          type: string
