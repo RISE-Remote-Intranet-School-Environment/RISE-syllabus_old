@@ -41,6 +41,7 @@ public class Document {
     }
     /**
      * constructor of Document object from the database
+     * @param ID id of the document in the db
      */
     public Document (int ID) throws SQLException{
         String table = "document";
