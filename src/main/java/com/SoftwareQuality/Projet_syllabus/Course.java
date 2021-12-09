@@ -38,6 +38,24 @@ public class Course {
         this.academic_year = academic_year;
         this.documents = documents;
     }
+
+    /**
+     * constructor of the course object from the db
+     * @param ID id of the course in the db
+     */
+    public Course(String ID) throws SQLException {
+        this.id = ID;
+        Statement stmt = db.con.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from course where courseId="+ID+";");
+        while(rs.next()){
+            this.name = rs.getString("name");
+            this.teacher = rs.getInt("teacher");
+            this.UE = rs.getString("ue");
+            this.academic_year = rs.getString("year");
+            this.fetchDocuments();
+        }
+    }
+
     //To delete
     public Course() {};
 
@@ -84,15 +102,7 @@ public class Course {
 
     public void setId(String id) {this.id = id;}
 
-    /**
-     * method to add a teacher to the course
-    @param teacher teacher to add into the course's teachers list
-     */
 
-    /**
-     * method to add a student to the course
-     * @param student student to add into the course's students list
-     */
     /**
      * method to add a syllabus to the course's syllabi list
      * @param document document to add into the course's syllabi list
@@ -112,7 +122,6 @@ public class Course {
         ArrayList <Document> result = new ArrayList<Document>();
         Statement stmt= db.con.createStatement();
         ResultSet rs = stmt.executeQuery( "SELECT * from `map_docu_course` m INNER JOIN document d ON m.document = d.documentId WHERE course="+this.id+";" );
-        ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
         while (rs.next()) {
             String name = rs.getString("name");
             String author = rs.getString("author");

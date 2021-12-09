@@ -2,6 +2,7 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import javax.print.Doc;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -45,14 +46,17 @@ public class Order {
         this.orderDate = LocalDateTime.now();
     }
 
+    /**
+     * save order in the DB
+     * @throws SQLException
+     */
     public void saveOrder() throws SQLException{
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         String date = dtf.format(this.orderDate);
         //System.out.println("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+","+this.state+");");
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+",'"+this.state+"');");
+        stmt.executeUpdate("INSERT INTO orders (orderID, student, date, price, state) VALUES ("+this.orderID+","+this.student+","+date+","+this.price+",'"+this.state+"');");
     }
-
 
     /**
      * method to add a syllabus to the order
@@ -77,7 +81,7 @@ public class Order {
     /**
      * method to generate a Json file with an order for a student
      */
-    public void generateOrderForStudent(){
+    public JSONObject generateOrderForStudent(){
         //Creating a JSONObject object
         JSONObject jsonObject = new JSONObject();
         //Inserting key-value pairs into the json object
@@ -89,6 +93,7 @@ public class Order {
             int value = this.syllabi.get(i).getID();
             jsonObject.put(key,value);
         }
+        return jsonObject;
     }
 
 

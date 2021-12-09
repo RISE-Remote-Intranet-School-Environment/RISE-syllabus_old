@@ -2,6 +2,8 @@ package com.SoftwareQuality.Projet_syllabus;
 
 import java.sql.*;
 
+import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
+
 public class Database{
     public Connection con;
 
@@ -41,6 +43,15 @@ public class Database{
     public void addDocument(Document document) throws SQLException{
         Statement stmt=con.createStatement();
         stmt.executeQuery("INSERT INTO `table_name`(Name,Author,Publish_Date,Pages,Version,ID) VALUES ("+document.toString()+");");
+    }
+
+    public void printWaitingOrders() throws SQLException{
+        Statement stmt= db.con.createStatement();
+        ResultSet rs = stmt.executeQuery( "SELECT * from orders WHERE state='attente';");
+        while (rs.next()) {
+            int length = rs.getRow();
+            System.out.println(length);
+        }
     }
 }
 
