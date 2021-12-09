@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 
 public class Course {
-    private  String id;
+    private  int id;
     private String name;
     private int teacher;
     private String UE;
@@ -43,7 +43,7 @@ public class Course {
      * constructor of the course object from the db
      * @param ID id of the course in the db
      */
-    public Course(String ID) throws SQLException {
+    public Course(int ID) throws SQLException {
         this.id = ID;
         Statement stmt = db.con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from course where courseId="+ID+";");
@@ -98,9 +98,9 @@ public class Course {
 
     public void setTeacher(int teacher) {this.teacher = teacher;}
     //fin des getters et des setters
-    public String getId() {return id;}
+    public int getId() {return id;}
 
-    public void setId(String id) {this.id = id;}
+    public void setId(int id) {this.id = id;}
 
 
     /**
@@ -110,8 +110,14 @@ public class Course {
     public void addDocument(Document document) throws SQLException {
         this.documents.add(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeQuery("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
+        stmt.executeQuery("INSERT INTO `map_docu_course` (course, document) VALUES ("+this.id+","+document.getID()+";");
     }
+
+    /**
+     * method to delete a document from a course
+     * @param document
+     * @throws SQLException
+     */
     public void deleteDocument(Document document) throws SQLException {
         this.documents.remove(document);
         Statement stmt= db.con.createStatement();
