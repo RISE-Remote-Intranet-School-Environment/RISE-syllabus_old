@@ -44,6 +44,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Course'
+    delete:
+      summary: ''
+      operationId: delete-Course-name
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
   '/Document/{name}':
     parameters:
       - schema:
@@ -229,28 +243,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-  '/Database/{Connection}':
-    parameters:
-      - schema:
-          type: string
-        name: Connection
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: Post found
-        '404':
-          description: Requested was not found
-      operationId: get-Database-Connection
-      description: Get database Connection
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Database'
 components:
   schemas:
     Course:
