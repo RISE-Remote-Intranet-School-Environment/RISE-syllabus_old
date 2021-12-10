@@ -56,8 +56,6 @@ public class Course {
         }
     }
 
-    //To delete
-    public Course() {};
 
     //getters et setters
 
