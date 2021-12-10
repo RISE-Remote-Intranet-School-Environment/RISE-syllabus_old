@@ -14,6 +14,7 @@ public class Secret {
 
 }
 ```
+This is needed to connect to our MySQL database.
 ## Functionnalities
 This web service allows a user to see documents related to a specific course. The user can order the documents that he wants and it is possible to export all the orders that have been made. There's also the possiblity to add new documents to a course. 
 
