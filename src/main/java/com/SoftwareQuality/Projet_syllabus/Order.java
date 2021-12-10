@@ -17,7 +17,7 @@ import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 
 public class Order {
     private int orderID;
-    private Student student;
+    private User user;
     private ArrayList<Document> documents;
     private LocalDateTime orderDate;
     private float price;
@@ -26,7 +26,7 @@ public class Order {
     /**
      * constructor of the order object
      * @param orderID id number of the order
-     * @param student student making the order
+     * @param user user making the order
      * @param documents syllabus ordered in this order
      * @param price total price of the order
      * @param state state of the order (attente, traitement, imprimée, livrée)
@@ -36,9 +36,9 @@ public class Order {
      *              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
      *              dtf.format(orderDate)
      */
-    public Order(int orderID, Student student, ArrayList<Document> documents, float price, String state){
+    public Order(int orderID, User user, ArrayList<Document> documents, float price, String state){
         this.orderID = orderID;
-        this.student = student;
+        this.user = user;
         this.documents = documents;
         this.state = state;
         this.price = price;
@@ -53,7 +53,7 @@ public class Order {
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         String date = dtf.format(this.orderDate);
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("INSERT INTO orders (orderID, student, date, price, state) VALUES ("+this.orderID+","+this.student+","+date+","+this.price+",'"+this.state+"');");
+        stmt.executeUpdate("INSERT INTO orders (orderID, student, date, price, state) VALUES ("+this.orderID+","+this.user+","+date+","+this.price+",'"+this.state+"');");
     }
 
     /**
@@ -83,9 +83,8 @@ public class Order {
         //Creating a JSONObject object
         JSONObject jsonObject = new JSONObject();
         //Inserting key-value pairs into the json object
-        jsonObject.put("First_Name", this.student.getFirstName());
-        jsonObject.put("Last_Name", this.student.getLastName());
-        jsonObject.put("studentID", this.student.getStudentID());
+        jsonObject.put("First_Name", this.user.getFirstName());
+        jsonObject.put("Last_Name", this.user.getLastName());
         for(int i = 0;i<this.documents.size();i++){
             String key = "doc_"+ String.valueOf(i);
             int value = this.documents.get(i).getID();
