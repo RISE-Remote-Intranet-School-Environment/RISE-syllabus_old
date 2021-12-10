@@ -72,8 +72,8 @@ public class Course {
         this.academic_year = academic_year;
     }
 
-    public void setSyllabi(ArrayList<Document> syllabi) {
-        this.documents = syllabi;
+    public void setdocuments(ArrayList<Document> documents) {
+        this.documents = documents;
     }
 
     public int getTeacher() {return teacher;}
@@ -94,8 +94,8 @@ public class Course {
      * @param student student to add into the course's students list
      */
     /**
-     * method to add a syllabus to the course's syllabi list
-     * @param document document to add into the course's syllabi list
+     * method to add a syllabus to the course's documents list
+     * @param document document to add into the course's documents list
      */
     public void addDocument(Document document) throws SQLException {
         this.documents.add(document);

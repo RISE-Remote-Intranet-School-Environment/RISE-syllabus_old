@@ -110,4 +110,8 @@ public class Document {
         Statement stmt= db.con.createStatement();
         stmt.executeUpdate("DELETE FROM `document`WHERE documentId="+this.ID+";");
     }
+    public void saveToOrder(int orderID) throws SQLException {
+        Statement stmt= db.con.createStatement();
+        stmt.executeUpdate("INSERT INTO `map_document_order`(document,course) VALUES ('"+ this.ID  + "','" + orderID +"');");
+    }
 }

@@ -17,11 +17,10 @@ import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 public class Order {
     private int orderID;
     private Student student;
-    private ArrayList<Document> syllabi;
+    private ArrayList<Document> documents;
     private LocalDateTime orderDate;
     private float price;
     private String state;
-
 
     /**
      * constructor of the order object
@@ -36,10 +35,10 @@ public class Order {
      *              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
      *              dtf.format(orderDate)
      */
-    public Order(int orderID, Student student, ArrayList<Document> syllabus, float price, String state){
+    public Order(int orderID, Student student, ArrayList<Document> documents, float price, String state){
         this.orderID = orderID;
         this.student = student;
-        this.syllabi = syllabus;
+        this.documents = documents;
         this.state = state;
         this.price = price;
         this.orderDate = LocalDateTime.now();
@@ -48,19 +47,18 @@ public class Order {
     public void saveOrder() throws SQLException{
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         String date = dtf.format(this.orderDate);
-        //System.out.println("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+","+this.state+");");
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("INSERT INTO orders (orderID, student, syllabi, date, price, state) VALUES ("+this.orderID+","+this.student+","+this.syllabi+","+date+","+this.price+",'"+this.state+"');");
+        stmt.executeUpdate("INSERT INTO orders (orderID, student, date, price, state) VALUES ("+this.orderID+","+this.student+","+date+","+this.price+",'"+this.state+"');");
     }
 
 
     /**
      * method to add a syllabus to the order
-     * @param syllabus syllabus to be added
+     * @param document syllabus to be added
      */
-    public void addSyllabus(Document syllabus){
-        this.syllabi.add(syllabus);
-        this.price += syllabus.getPrice();
+    public void addSyllabus(Document document){
+        this.documents.add(document);
+        this.price += document.getPrice();
     }
 
     /**
@@ -84,14 +82,20 @@ public class Order {
         jsonObject.put("First_Name", this.student.getFirstName());
         jsonObject.put("Last_Name", this.student.getLastName());
         jsonObject.put("studentID", this.student.getStudentID());
-        for(int i = 0;i<this.syllabi.size();i++){
+        for(int i = 0;i<this.documents.size();i++){
             String key = "doc_"+ String.valueOf(i);
-            int value = this.syllabi.get(i).getID();
+            int value = this.documents.get(i).getID();
             jsonObject.put(key,value);
         }
 
         return jsonObject ;
     }
 
-
+    void saveDocuments() throws SQLException {
+        Statement stmt= db.con.createStatement();
+        for (Document document:
+             documents) {
+            document.saveToOrder(this.orderID);
+        }
+    }
 }
