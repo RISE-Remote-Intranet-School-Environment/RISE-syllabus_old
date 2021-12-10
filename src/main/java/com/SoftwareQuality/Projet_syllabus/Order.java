@@ -77,7 +77,7 @@ public class Order {
     /**
      * method to generate a Json file with an order for a student
      */
-    public void generateOrderForStudent(){
+    public JSONObject generateOrderForStudent(){
         //Creating a JSONObject object
         JSONObject jsonObject = new JSONObject();
         //Inserting key-value pairs into the json object
@@ -89,6 +89,8 @@ public class Order {
             int value = this.syllabi.get(i).getID();
             jsonObject.put(key,value);
         }
+
+        return jsonObject ;
     }
 
 

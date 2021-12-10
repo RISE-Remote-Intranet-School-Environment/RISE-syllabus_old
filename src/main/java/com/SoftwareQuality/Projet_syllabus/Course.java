@@ -100,19 +100,18 @@ public class Course {
     public void addDocument(Document document) throws SQLException {
         this.documents.add(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeQuery("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
+        stmt.executeUpdate("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
     }
     public void deleteDocument(Document document) throws SQLException {
         this.documents.remove(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeQuery("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
+        stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
     }
 
     public void fetchDocuments() throws SQLException {
         ArrayList <Document> result = new ArrayList<Document>();
         Statement stmt= db.con.createStatement();
         ResultSet rs = stmt.executeQuery( "SELECT * from `map_docu_course` m INNER JOIN document d ON m.document = d.documentId WHERE course="+this.id+";" );
-        ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
         while (rs.next()) {
             String name = rs.getString("name");
             String author = rs.getString("author");

@@ -38,9 +38,6 @@ public class Database{
      * @param document  document to be added
      * @throws SQLException
      */
-    public void addDocument(Document document) throws SQLException{
-        Statement stmt=con.createStatement();
-        stmt.executeQuery("INSERT INTO `table_name`(Name,Author,Publish_Date,Pages,Version,ID) VALUES ("+document.toString()+");");
-    }
+
 }
 
