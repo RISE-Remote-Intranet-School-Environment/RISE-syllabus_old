@@ -30,16 +30,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Course'
-    patch:
+    put:
       summary: ''
-      operationId: patch-Course-name
+      operationId: put-Course-name
       responses:
         '202':
-          description: Update successful
-        '404':
-          description: Not Found
-      description: Edit Course Info
-      x-internal: false
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Course
       requestBody:
         content:
           application/json:
@@ -71,20 +70,20 @@ paths:
           description: Document Found
         '404':
           description: Not Found
-    patch:
+    put:
       summary: ''
-      operationId: patch-Document-name
+      operationId: put-Document-name
       responses:
-        '200':
-          description: Update Successful
-        '404':
-          description: Not Found
-      description: Edit Document Info
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Document
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Course'
+              $ref: '#/components/schemas/Document'
   '/Order/{orderID}':
     parameters:
       - schema:
@@ -107,21 +106,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
-    patch:
+    put:
       summary: ''
-      operationId: patch-Order-orderID
+      operationId: put-Order-orderID
       responses:
-        '201':
-          description: Update Successful
-        '404':
-          description: Not Found
-      description: Edit Order
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Order
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
-        description: ''
   '/Student/{studentID}':
     parameters:
       - schema:
@@ -144,13 +142,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
-    patch:
+    put:
       summary: ''
-      operationId: patch-Student-studentID
+      operationId: put-Student-studentID
       responses:
-        '200':
-          description: OK
-      description: ''
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
   '/Teacher/{trigram}':
     parameters:
       - schema:
@@ -173,13 +178,21 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Teacher'
-    patch:
+    put:
       summary: ''
-      operationId: patch-Teacher-trigram
+      operationId: put-Teacher-trigram
       responses:
-        '200':
-          description: OK
-      description: Edit Teacher
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+        description: ''
+      description: Create New Or Edit Existing Teacher
   '/User/{firstName}':
     parameters:
       - schema:
@@ -202,34 +215,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-    patch:
+    put:
       summary: ''
-      operationId: patch-User-firstName
+      operationId: put-User-firstName
       responses:
-        '200':
-          description: User Found
-        '404':
-          description: Not Found
-      description: Edit User
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing User
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-  /Course/:
-    parameters: []
-    put:
-      summary: ''
-      operationId: put-Course
-      responses:
-        '200':
-          description: |
-            The created or updated reaction
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-      description: Set name for course
   '/Database/{Connection}':
     parameters:
       - schema:
