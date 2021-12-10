@@ -36,7 +36,6 @@ public class Document {
         this.publish_date = publish_date;
         this.pages = pages;
         this.version = version;
-        this.ID = ID;
         this.price = price;
     }
     /**
@@ -102,9 +101,18 @@ public class Document {
      * method to generate a String for mySQL querry to add documnt to db
      * @return string for query sql to add document
      */
-    public String toString(){
-        String doc = "";
-        doc = doc + name + "," + author + "," + publish_date.toString() + "," + String.valueOf(pages) + "," + version + "," + ID;
-        return doc;
+    public void save() throws SQLException{
+        Statement stmt= db.con.createStatement();
+        DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
+        String date = dtf.format(this.publish_date);
+        stmt.executeUpdate("INSERT INTO `document`(name,author,publishDate,pages,version) VALUES ('"+ name + "','" + author + "','" + date + "','" + pages + "','" + version + "');");
+    }
+    public void delete() throws SQLException{
+        Statement stmt= db.con.createStatement();
+        stmt.executeUpdate("DELETE FROM `document`WHERE documentId="+this.ID+";");
+    }
+    public void saveToOrder(int orderID) throws SQLException {
+        Statement stmt= db.con.createStatement();
+        stmt.executeUpdate("INSERT INTO `map_document_order`(document,course) VALUES ('"+ this.ID  + "','" + orderID +"');");
     }
 }

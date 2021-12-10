@@ -90,8 +90,8 @@ public class Course {
         this.academic_year = academic_year;
     }
 
-    public void setSyllabi(ArrayList<Document> syllabi) {
-        this.documents = syllabi;
+    public void setdocuments(ArrayList<Document> documents) {
+        this.documents = documents;
     }
 
     public int getTeacher() {return teacher;}
@@ -104,18 +104,22 @@ public class Course {
 
 
     /**
-     * method to add a syllabus to the course's syllabi list
-     * @param document document to add into the course's syllabi list
+     * method to add a student to the course
+     * @param student student to add into the course's students list
+     */
+    /**
+     * method to add a syllabus to the course's documents list
+     * @param document document to add into the course's documents list
      */
     public void addDocument(Document document) throws SQLException {
         this.documents.add(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeQuery("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
+        stmt.executeUpdate("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
     }
     public void deleteDocument(Document document) throws SQLException {
         this.documents.remove(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeQuery("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
+        stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
     }
 
     public void fetchDocuments() throws SQLException {

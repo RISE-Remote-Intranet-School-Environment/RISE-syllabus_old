@@ -35,16 +35,6 @@ public class Database{
         return rs;
     }
 
-    /**
-     * method to add a document to the db
-     * @param document  document to be added
-     * @throws SQLException
-     */
-    public void addDocument(Document document) throws SQLException{
-        Statement stmt=con.createStatement();
-        stmt.executeQuery("INSERT INTO `table_name`(Name,Author,Publish_Date,Pages,Version,ID) VALUES ("+document.toString()+");");
-    }
-
     public void printWaitingOrders() throws SQLException{
         Statement stmt= db.con.createStatement();
         ResultSet rs = stmt.executeQuery( "SELECT * from orders WHERE state='attente';");
