@@ -88,7 +88,7 @@ public class Course {
         this.academic_year = academic_year;
     }
 
-    public void setdocuments(ArrayList<Document> documents) {
+    public void setDocuments(ArrayList<Document> documents) {
         this.documents = documents;
     }
 
