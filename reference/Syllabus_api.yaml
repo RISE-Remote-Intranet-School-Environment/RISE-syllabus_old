@@ -18,28 +18,32 @@ paths:
       tags: []
       responses:
         '200':
-          description: Name Found
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Course'
-            application/xml:
-              schema:
-                type: object
-                properties: {}
+          description: Course Found
         '404':
-          description: Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
+          description: Not Found
       operationId: get-Course-CourseID
-      description: Get course name.
+      description: Get Course Name
       parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+    patch:
+      summary: ''
+      operationId: patch-Course-name
+      responses:
+        '202':
+          description: Update successful
+        '404':
+          description: Not Found
+      description: Edit Course Info
+      x-internal: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
   '/Document/{name}':
     parameters:
       - schema:
@@ -50,30 +54,36 @@ paths:
     get:
       summary: Your GET endpoint
       tags: []
-      responses:
-        '200':
-          description: Post Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Document'
-        '404':
-          description: |
-            Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
       operationId: get-Document-name
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Document'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Document'
       parameters: []
-      description: Get Document name
+      description: Get Document Name
+      responses:
+        '200':
+          description: Document Found
+        '404':
+          description: Not Found
+    patch:
+      summary: ''
+      operationId: patch-Document-name
+      responses:
+        '200':
+          description: Update Successful
+        '404':
+          description: Not Found
+      description: Edit Document Info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
   '/Order/{orderID}':
     parameters:
       - schema:
@@ -86,20 +96,9 @@ paths:
       tags: []
       responses:
         '200':
-          description: Post Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Order'
+          description: Order Found
         '404':
-          description: |
-            Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - integer
+          description: Not Found
       operationId: get-Order-orderID
       description: Get order ID
       requestBody:
@@ -107,6 +106,21 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
+    patch:
+      summary: ''
+      operationId: patch-Order-orderID
+      responses:
+        '201':
+          description: Update Successful
+        '404':
+          description: Not Found
+      description: Edit Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: ''
   '/Student/{studentID}':
     parameters:
       - schema:
@@ -119,20 +133,9 @@ paths:
       tags: []
       responses:
         '200':
-          description: Post Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Student'
+          description: Student Found
         '404':
-          description: |
-            Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - integer
-                  - 'null'
+          description: Not Found
       operationId: get-Student-studentID
       description: Get Student ID
       requestBody:
@@ -140,6 +143,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
+    patch:
+      summary: ''
+      operationId: patch-Student-studentID
+      responses:
+        '200':
+          description: OK
+      description: ''
   '/Teacher/{trigram}':
     parameters:
       - schema:
@@ -152,19 +162,9 @@ paths:
       tags: []
       responses:
         '200':
-          description: Post Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Teacher'
+          description: Teacher Found
         '404':
-          description: Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
+          description: Not Found
       operationId: get-Teacher-trigram
       description: Get Teacher Trigram
       requestBody:
@@ -172,6 +172,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Teacher'
+    patch:
+      summary: ''
+      operationId: patch-Teacher-trigram
+      responses:
+        '200':
+          description: OK
+      description: Edit Teacher
   '/User/{firstName}':
     parameters:
       - schema:
@@ -184,19 +191,9 @@ paths:
       tags: []
       responses:
         '200':
-          description: Post Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
+          description: User Found
         '404':
           description: Not Found
-          content:
-            application/json:
-              schema:
-                type:
-                  - string
-                  - 'null'
       operationId: get-User-firstName
       description: Get User FirstName
       requestBody:
@@ -204,97 +201,25 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-  '/Course/{name}/Teacher':
-    parameters:
-      - schema:
-          type: string
-        name: name
-        in: path
-        required: true
-    post:
+    patch:
       summary: ''
-      operationId: post-Cours-name-Teacher
+      operationId: patch-User-firstName
       responses:
         '200':
-          description: New Post Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '400':
-          description: Missing argument
-          content:
-            application/json:
-              schema:
-                type: 'null'
+          description: User Found
         '404':
-          description: |
-            Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
-      description: Add new Teacher for a course
-  '/Course/{name}/Student':
-    parameters:
-      - schema:
-          type: string
-        name: name
-        in: path
-        required: true
-    post:
-      summary: ''
-      operationId: post-Course-name-Student
-      responses:
-        '200':
-          description: New post created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '400':
-          description: Missing argument
-          content:
-            application/json:
-              schema:
-                type:
-                  - 'null'
-                  - string
-        '404':
-          description: |
-            Requested object was not found in our database
-          content:
-            application/json:
-              schema:
-                type:
-                  - string
-                  - 'null'
-      description: Add new Student for a course
-  '/Course/{name}/Syllabus':
-    parameters:
-      - schema:
-          type: string
-        name: name
-        in: path
-        required: true
-    post:
-      summary: ''
-      operationId: post-Course-name-Syllabus
-      responses:
-        '200':
-          description: OK
-  '/Course/{name}/name':
-    parameters:
-      - schema:
-          type: string
-        name: name
-        in: path
-        required: true
+          description: Not Found
+      description: Edit User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+  /Course/:
+    parameters: []
     put:
       summary: ''
-      operationId: put-Course-name-name
+      operationId: put-Course
       responses:
         '200':
           description: |
@@ -336,8 +261,6 @@ components:
         syllabi:
           type: array
           items: {}
-      required:
-        - UE
     Document:
       title: Document
       type: object
