@@ -26,7 +26,7 @@ public class Order {
      * constructor of the order object
      * @param orderID id number of the order
      * @param student student making the order
-     * @param syllabus syllabus ordered in this order
+     * @param documents syllabus ordered in this order
      * @param price total price of the order
      * @param state state of the order (attente, traitement, imprimée, livrée)
      * the orderDate is the date of when the order was created to format it we'll use :
