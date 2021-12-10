@@ -116,7 +116,7 @@ public class Course {
     }
 
     /**
-     * method to delete a document from a course
+     * Method to delete a document from the course object (link deleted from the database too)
      * @param document
      * @throws SQLException
      */
@@ -126,6 +126,10 @@ public class Course {
         stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
     }
 
+    /**
+     * Fetches all documents related to this course and adds them into the documents attribute of the course object.
+     * @throws SQLException
+     */
     public void fetchDocuments() throws SQLException {
         ArrayList <Document> result = new ArrayList<Document>();
         Statement stmt= db.con.createStatement();
