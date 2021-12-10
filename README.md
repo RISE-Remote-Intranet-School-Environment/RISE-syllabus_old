@@ -1,7 +1,7 @@
 # syllabus-webservice
 ## Installation
 ### Maven
-
+We use Maven as project manager. You can check our pom.xml file for all the used dependecies and project specificities.
 ### Database 
 You have to create a "Secret" class in the main, along the "Database" class : 
 ```
