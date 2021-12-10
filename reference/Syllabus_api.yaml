@@ -152,97 +152,6 @@ paths:
         '404':
           description: Not Found
       description: Delete Order
-  '/Student/{studentID}':
-    parameters:
-      - schema:
-          type: string
-        name: studentID
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: Student Found
-        '404':
-          description: Not Found
-      operationId: get-Student-studentID
-      description: Get Student ID
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Student'
-    put:
-      summary: ''
-      operationId: put-Student-studentID
-      responses:
-        '202':
-          description: Accepted
-        '400':
-          description: Bad Request
-      description: Create New Or Edit Existing Student
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Student'
-    delete:
-      summary: ''
-      operationId: delete-Student-studentID
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: Not Found
-      description: Delete Student
-  '/Teacher/{trigram}':
-    parameters:
-      - schema:
-          type: string
-        name: trigram
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: Teacher Found
-        '404':
-          description: Not Found
-      operationId: get-Teacher-trigram
-      description: Get Teacher Trigram
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Teacher'
-    put:
-      summary: ''
-      operationId: put-Teacher-trigram
-      responses:
-        '202':
-          description: Accepted
-        '400':
-          description: Bad Request
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Teacher'
-        description: ''
-      description: Create New Or Edit Existing Teacher
-    delete:
-      summary: ''
-      operationId: delete-Teacher-trigram
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: Not Found
-      description: Delete Teacher
   '/User/{firstName}':
     parameters:
       - schema:
@@ -354,26 +263,6 @@ components:
           type: string
         '':
           type: string
-    Student:
-      title: Student
-      type: object
-      description: 'Classe Student extends User '
-      properties:
-        studentID:
-          type: integer
-        PAE:
-          type: array
-          items: {}
-    Teacher:
-      title: Teacher
-      type: object
-      description: Classe Teacher extends User
-      properties:
-        trigram:
-          type: string
-        courses:
-          type: array
-          items: {}
     User:
       title: User
       type: object
