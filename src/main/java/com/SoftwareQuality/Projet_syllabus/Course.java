@@ -102,12 +102,22 @@ public class Course {
         Statement stmt= db.con.createStatement();
         stmt.executeUpdate("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
     }
+
+    /**
+     * Method to delete a document from the course object (link deleted from the database too)
+     * @param document
+     * @throws SQLException
+     */
     public void deleteDocument(Document document) throws SQLException {
         this.documents.remove(document);
         Statement stmt= db.con.createStatement();
         stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE documentId="+document.getID()+";");
     }
 
+    /**
+     * Fetches all documents related to this course and adds them into the documents attribute of the course object.
+     * @throws SQLException
+     */
     public void fetchDocuments() throws SQLException {
         ArrayList <Document> result = new ArrayList<Document>();
         Statement stmt= db.con.createStatement();

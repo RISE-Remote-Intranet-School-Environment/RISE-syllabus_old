@@ -97,8 +97,7 @@ public class Document {
     //fin des getters et setters
 
     /**
-     * method to generate a String for mySQL querry to add documnt to db
-     * @return string for query sql to add document
+     * method used to save a document into the database
      */
     public void save() throws SQLException{
         Statement stmt= db.con.createStatement();
@@ -106,10 +105,21 @@ public class Document {
         String date = dtf.format(this.publish_date);
         stmt.executeUpdate("INSERT INTO `document`(name,author,publishDate,pages,version) VALUES ('"+ name + "','" + author + "','" + date + "','" + pages + "','" + version + "');");
     }
+
+    /**
+     * @delete Deletes a document from the database
+     * @throws SQLException
+     */
     public void delete() throws SQLException{
         Statement stmt= db.con.createStatement();
         stmt.executeUpdate("DELETE FROM `document`WHERE documentId="+this.ID+";");
     }
+
+    /**
+     * Makes the link between in an order and a document that's in it.
+     * @param orderID
+     * @throws SQLException
+     */
     public void saveToOrder(int orderID) throws SQLException {
         Statement stmt= db.con.createStatement();
         stmt.executeUpdate("INSERT INTO `map_document_order`(document,course) VALUES ('"+ this.ID  + "','" + orderID +"');");
