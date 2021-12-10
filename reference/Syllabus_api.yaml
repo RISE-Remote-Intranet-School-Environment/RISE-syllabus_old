@@ -1,0 +1,393 @@
+openapi: 3.1.0
+info:
+  title: Syllabus_api
+  version: '1.0'
+  termsOfService: 'https://github.com/smarbal/syllabus-webservice.git'
+  description: ''
+servers:
+  - url: 'https://api.ecam.be/syllabus-webservice'
+paths:
+  '/Course/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Course Found
+        '404':
+          description: Not Found
+      operationId: get-Course-CourseID
+      description: Get Course Name
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+    put:
+      summary: ''
+      operationId: put-Course-name
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+    delete:
+      summary: ''
+      operationId: delete-Course-name
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+  '/Document/{name}':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-Document-name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Document'
+      parameters: []
+      description: Get Document Name
+      responses:
+        '200':
+          description: Document Found
+        '404':
+          description: Not Found
+    put:
+      summary: ''
+      operationId: put-Document-name
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+    delete:
+      summary: ''
+      operationId: delete-Document-name
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Document
+  '/Order/{orderID}':
+    parameters:
+      - schema:
+          type: string
+        name: orderID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Order Found
+        '404':
+          description: Not Found
+      operationId: get-Order-orderID
+      description: Get order ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+    put:
+      summary: ''
+      operationId: put-Order-orderID
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+    delete:
+      summary: ''
+      operationId: delete-Order-orderID
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Order
+  '/Student/{studentID}':
+    parameters:
+      - schema:
+          type: string
+        name: studentID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Student Found
+        '404':
+          description: Not Found
+      operationId: get-Student-studentID
+      description: Get Student ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+    put:
+      summary: ''
+      operationId: put-Student-studentID
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+    delete:
+      summary: ''
+      operationId: delete-Student-studentID
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Student
+  '/Teacher/{trigram}':
+    parameters:
+      - schema:
+          type: string
+        name: trigram
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Teacher Found
+        '404':
+          description: Not Found
+      operationId: get-Teacher-trigram
+      description: Get Teacher Trigram
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+    put:
+      summary: ''
+      operationId: put-Teacher-trigram
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+        description: ''
+      description: Create New Or Edit Existing Teacher
+    delete:
+      summary: ''
+      operationId: delete-Teacher-trigram
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Teacher
+  '/User/{firstName}':
+    parameters:
+      - schema:
+          type: string
+        name: firstName
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: User Found
+        '404':
+          description: Not Found
+      operationId: get-User-firstName
+      description: Get User FirstName
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+    put:
+      summary: ''
+      operationId: put-User-firstName
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+      description: Create New Or Edit Existing User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+    delete:
+      summary: ''
+      operationId: delete-User-firstName
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete User
+components:
+  schemas:
+    Course:
+      title: Course
+      type: object
+      description: Course class
+      examples:
+        - '': string
+          teachers:
+            - null
+          UE: string
+          students:
+            - null
+          academic_year: string
+          syllabi:
+            - null
+      properties:
+        id:
+          type: string
+        '':
+          type: string
+        teachers:
+          type: array
+          items: {}
+        UE:
+          type: string
+        students:
+          type: array
+          items: {}
+        academic_year:
+          type: string
+        documents:
+          type: array
+          items: {}
+    Document:
+      title: Document
+      type: object
+      description: Classe Document
+      properties:
+        name:
+          type: string
+        author:
+          type: array
+          items: {}
+        publish_date:
+          type: number
+        pages:
+          type: integer
+    Order:
+      title: Order
+      type: object
+      description: Classe Order
+      properties:
+        orderID:
+          type: integer
+        student: {}
+        documents:
+          type: array
+          items: {}
+        orderDate: {}
+        price:
+          type: number
+        state:
+          type: string
+        '':
+          type: string
+    Student:
+      title: Student
+      type: object
+      description: 'Classe Student extends User '
+      properties:
+        studentID:
+          type: integer
+        PAE:
+          type: array
+          items: {}
+    Teacher:
+      title: Teacher
+      type: object
+      description: Classe Teacher extends User
+      properties:
+        trigram:
+          type: string
+        courses:
+          type: array
+          items: {}
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+    Database:
+      title: Database
+      type: object
+      description: Class Database
+      properties:
+        Connection:
+          type: integer
