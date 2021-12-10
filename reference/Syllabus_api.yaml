@@ -243,6 +243,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
+    delete:
+      summary: ''
+      operationId: delete-User-firstName
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete User
 components:
   schemas:
     Course:
