@@ -98,6 +98,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Document'
+    delete:
+      summary: ''
+      operationId: delete-Document-name
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Document
   '/Order/{orderID}':
     parameters:
       - schema:
@@ -134,6 +143,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
+    delete:
+      summary: ''
+      operationId: delete-Order-orderID
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Order
   '/Student/{studentID}':
     parameters:
       - schema:
@@ -170,6 +188,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
+    delete:
+      summary: ''
+      operationId: delete-Student-studentID
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Student
   '/Teacher/{trigram}':
     parameters:
       - schema:
@@ -207,6 +234,15 @@ paths:
               $ref: '#/components/schemas/Teacher'
         description: ''
       description: Create New Or Edit Existing Teacher
+    delete:
+      summary: ''
+      operationId: delete-Teacher-trigram
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      description: Delete Teacher
   '/User/{firstName}':
     parameters:
       - schema:
