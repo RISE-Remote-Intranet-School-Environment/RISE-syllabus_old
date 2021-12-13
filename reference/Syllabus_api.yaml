@@ -51,12 +51,6 @@ paths:
           description: OK
         '404':
           description: Not Found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
   '/Document/{name}':
     parameters:
       - schema:
