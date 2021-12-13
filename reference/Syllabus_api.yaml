@@ -190,16 +190,7 @@ components:
       title: Course
       type: object
       description: Course class
-      examples:
-        - name: string
-          teachers:
-            - null
-          UE: string
-          students:
-            - null
-          academic_year: string
-          syllabi:
-            - null
+      examples: []
       properties:
         '':
           type: string
