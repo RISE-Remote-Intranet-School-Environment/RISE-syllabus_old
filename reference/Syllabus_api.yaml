@@ -67,6 +67,10 @@ paths:
       responses:
         '200':
           description: Document Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
         '404':
           description: Not Found
     put:
@@ -105,15 +109,14 @@ paths:
       responses:
         '200':
           description: Order Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
         '404':
           description: Not Found
       operationId: get-Order-orderID
       description: Get order ID
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Order'
     put:
       summary: ''
       operationId: put-Order-orderID
@@ -150,16 +153,14 @@ paths:
       responses:
         '200':
           description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         '404':
           description: Not Found
       operationId: get-User-firstName
       description: Get User FirstName
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: ''
     put:
       summary: ''
       operationId: put-User-firstName
@@ -190,7 +191,7 @@ components:
       type: object
       description: Course class
       examples:
-        - '': string
+        - name: string
           teachers:
             - null
           UE: string
