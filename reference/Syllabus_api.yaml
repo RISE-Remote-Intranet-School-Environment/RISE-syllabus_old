@@ -190,7 +190,6 @@ components:
       title: Course
       type: object
       description: Course class
-      examples: []
       properties:
         name:
           type: string
