@@ -29,7 +29,6 @@ paths:
       operationId: get-Course-CourseID
       description: Get Course Name
       parameters: []
-      requestBody:
     put:
       summary: ''
       operationId: put-Course-name
