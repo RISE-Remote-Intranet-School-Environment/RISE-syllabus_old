@@ -62,14 +62,6 @@ paths:
       summary: Your GET endpoint
       tags: []
       operationId: get-Document-name
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Document'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Document'
       parameters: []
       description: Get Document Name
       responses:
