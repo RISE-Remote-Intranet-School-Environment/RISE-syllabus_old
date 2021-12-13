@@ -20,6 +20,10 @@ paths:
       responses:
         '200':
           description: Course Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
         '404':
           description: Not Found
       operationId: get-Course-CourseID
@@ -29,7 +33,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Course'
+              $ref: ''
+            examples: {}
     put:
       summary: ''
       operationId: put-Course-name
@@ -174,6 +179,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
+        description: ''
     put:
       summary: ''
       operationId: put-User-firstName
