@@ -30,11 +30,6 @@ paths:
       description: Get Course Name
       parameters: []
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ''
-            examples: {}
     put:
       summary: ''
       operationId: put-Course-name
