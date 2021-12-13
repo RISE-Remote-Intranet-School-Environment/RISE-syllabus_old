@@ -192,7 +192,7 @@ components:
       description: Course class
       examples: []
       properties:
-        '':
+        name:
           type: string
         teachers:
           type: array
