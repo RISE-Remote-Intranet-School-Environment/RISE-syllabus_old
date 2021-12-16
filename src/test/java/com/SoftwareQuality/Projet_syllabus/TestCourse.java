@@ -15,13 +15,23 @@ public class TestCourse {
     void addDocument() throws SQLException {
         Document docTest = new Document(5);
         Course courseTest = new Course(6);
-        System.out.println(courseTest.getId());
         courseTest.addDocument(docTest);
         Statement stmt = db.con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from map_docu_course where document = 5 and course = 6");
         while(rs.next()){
             assertEquals(6, rs.getInt("course"));
             assertEquals(5, rs.getInt("document"));
+        }
+    }
+
+    @Test
+    void deleteDocument() throws SQLException{
+        Document docTest = new Document(5);
+        Course courseTest = new Course(6);
+        Statement stmt = db.con.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from map_docu_course where document = 5 and course = 6");
+        while(rs.next()) {
+            assertNull(rs.getInt("document"));
         }
     }
 }

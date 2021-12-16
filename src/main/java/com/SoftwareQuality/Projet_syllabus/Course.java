@@ -123,7 +123,7 @@ public class Course {
     public void deleteDocument(Document document) throws SQLException {
         this.documents.remove(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE documentId='"+document.getID()+"';");
+        stmt.executeUpdate("DELETE FROM `map_docu_course` WHERE document='"+document.getID()+"';");
     }
 
     /**
