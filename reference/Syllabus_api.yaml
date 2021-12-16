@@ -7,11 +7,11 @@ info:
 servers:
   - url: 'https://api.ecam.be/syllabus-webservice'
 paths:
-  '/Course/{name}':
+  '/Course/{id}':
     parameters:
       - schema:
           type: string
-        name: name
+        name: id
         in: path
         required: true
     get:
@@ -203,7 +203,7 @@ components:
           items: {}
         academic_year:
           type: string
-        syllabi:
+        documents:
           type: array
           items: {}
     Document:
@@ -228,7 +228,7 @@ components:
         orderID:
           type: integer
         student: {}
-        syllabi:
+        documents:
           type: array
           items: {}
         orderDate: {}
