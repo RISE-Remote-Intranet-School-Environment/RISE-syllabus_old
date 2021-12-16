@@ -28,6 +28,7 @@ public class TestCourse {
     void deleteDocument() throws SQLException{
         Document docTest = new Document(5);
         Course courseTest = new Course(6);
+        courseTest.deleteDocument(docTest);
         Statement stmt = db.con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from map_docu_course where document = 5 and course = 6");
         while(rs.next()) {
