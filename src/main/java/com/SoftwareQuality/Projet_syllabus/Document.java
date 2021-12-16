@@ -104,7 +104,7 @@ public class Document {
         Statement stmt= db.con.createStatement();
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         String date = dtf.format(this.publish_date);
-        stmt.executeUpdate("INSERT INTO `document`(name,author,publishDate,pages,version) VALUES ('"+ name + "','" + author + "','" + date + "','" + pages + "','" + version + "');");
+        stmt.executeUpdate("INSERT INTO `document`(name,author,publishDate,pages,version,price) VALUES ('"+ name + "','" + author + "','" + date + "','" + pages + "','" + version +"','" + price + "');");
     }
 
     /**
@@ -123,6 +123,6 @@ public class Document {
      */
     public void saveToOrder(int orderID) throws SQLException {
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("INSERT INTO `map_document_order`(document,course) VALUES ('"+ this.ID  + "','" + orderID +"');");
+        stmt.executeUpdate("INSERT INTO `map_docu_order` (`document`,`order`) VALUES ('" + this.ID  + "', '" + orderID +"');");
     }
 }
