@@ -21,6 +21,8 @@ public class ProjectSyllabusApplication {
 		//Course cours = new Course();
 		//cours.setId("4");
 		//cours.fetchDocuments();
+		//System.out.println(generateOrderForPrinter());
+
 	}
 
 	/**
