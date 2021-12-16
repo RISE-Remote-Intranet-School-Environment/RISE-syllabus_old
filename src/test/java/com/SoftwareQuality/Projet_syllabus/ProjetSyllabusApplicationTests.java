@@ -33,7 +33,7 @@ class ProjetSyllabusApplicationTests {
 		miniJson1.put("number of pages",55);
 
 		JSONObject miniJson2 = new JSONObject();
-		miniJson2.put("document ID",2);
+		miniJson2.put("document ID",3);
 		miniJson2.put("document title","oui");
 		miniJson2.put("number of copies",1);
 		miniJson2.put("number of pages",12);
@@ -43,7 +43,7 @@ class ProjetSyllabusApplicationTests {
 
 		ProjectSyllabusApplication app = new ProjectSyllabusApplication();
 		JSONObject actual = app.generateOrderForPrinter();
-		assertEquals(actual,jsonTest);
+		assertTrue(actual.toString().equals(jsonTest.toString()));
 	}
 
 }
