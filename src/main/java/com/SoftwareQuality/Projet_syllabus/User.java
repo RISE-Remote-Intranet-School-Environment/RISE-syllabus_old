@@ -56,3 +56,7 @@ public class User {
 
     public String getRole() { return role; }
 }
+
+/* TO DO: Call [user management] microservice API and fetch json data,
+and use constructor to fill attributes with said data when instantiating an User object.
+ */
