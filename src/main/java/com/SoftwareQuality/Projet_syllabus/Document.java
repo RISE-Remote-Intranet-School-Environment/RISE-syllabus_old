@@ -108,7 +108,7 @@ public class Document {
     }
 
     /**
-     * @delete Deletes a document from the database
+     * Deletes a document from the database
      * @throws SQLException
      */
     public void delete() throws SQLException{
