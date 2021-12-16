@@ -1,5 +1,8 @@
 # syllabus-webservice
-## Database 
+## Installation
+### Maven
+We use Maven as project manager. You can check our pom.xml file for all the used dependecies and project specificities.
+### Database 
 You have to create a "Secret" class in the main, along the "Database" class : 
 ```
 package com.SoftwareQuality.Projet_syllabus;
@@ -11,6 +14,11 @@ public class Secret {
 
 }
 ```
+This is needed to connect to our MySQL database.
+You can import [this file](https://github.com/smarbal/syllabus-webservice/blob/main/MySQL.sql) in MySQL Workbench to have our database structure. 
+## Functionnalities
+This web service allows a user to see documents related to a specific course. The user can order the documents that he wants and it is possible to export all the orders that have been made. There's also the possiblity to add new documents to a course. 
+
 ## Useful links:
 * https://lucid.app/lucidchart/b340a24a-37cf-4438-8019-bbbfcdea4bd4/edit?invitationId=inv_2f86983e-661c-4173-9de0-0e0f5a16852e&page=0_0#
 * https://trello.com/b/9YV8Py7a/projet-archi-quality
