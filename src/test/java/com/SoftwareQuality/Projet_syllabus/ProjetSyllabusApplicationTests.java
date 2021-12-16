@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProjetSyllabusApplicationTests {
@@ -33,7 +33,7 @@ class ProjetSyllabusApplicationTests {
 		miniJson1.put("number of pages",55);
 
 		JSONObject miniJson2 = new JSONObject();
-		miniJson2.put("document ID",3);
+		miniJson2.put("document ID",2);
 		miniJson2.put("document title","oui");
 		miniJson2.put("number of copies",1);
 		miniJson2.put("number of pages",12);
@@ -41,8 +41,9 @@ class ProjetSyllabusApplicationTests {
 		jsonTest.put(doc1,miniJson1);
 		jsonTest.put(doc2,miniJson2);
 
-		//JSONObject actual = generateOrderForPrinter();
-		//JSONAssert.assertEquals(generateOrderForPrinter(), jsonTest, true);
+		ProjectSyllabusApplication app = new ProjectSyllabusApplication();
+		JSONObject actual = app.generateOrderForPrinter();
+		assertEquals(actual,jsonTest);
 	}
 
 }
