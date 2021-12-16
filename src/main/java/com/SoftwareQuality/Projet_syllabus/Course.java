@@ -112,7 +112,7 @@ public class Course {
     public void addDocument(Document document) throws SQLException {
         this.documents.add(document);
         Statement stmt= db.con.createStatement();
-        stmt.executeUpdate("INSERT INTO `map_docu_course`(course, document) VALUES ("+this.id+","+document.getID()+";");
+        stmt.executeUpdate("INSERT INTO map_docu_course(`course`, `document`) VALUES('"+this.id+"','"+document.getID()+"');");
     }
 
     /**
