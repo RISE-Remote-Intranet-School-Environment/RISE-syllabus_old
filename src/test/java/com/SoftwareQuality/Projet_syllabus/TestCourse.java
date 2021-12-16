@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import static com.SoftwareQuality.Projet_syllabus.ProjectSyllabusApplication.db;
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,5 +35,14 @@ public class TestCourse {
         while(rs.next()) {
             assertNull(rs.getInt("document"));
         }
+    }
+
+    @Test
+    void fetchDocuments() throws SQLException {
+        ArrayList<Document> test = new ArrayList<Document>();
+        Document document = new Document(6);
+        Course course = new Course(4);
+        test.add(document);
+        assertEquals(test.get(0).getName(),course.getDocuments().get(0).getName());
     }
 }
