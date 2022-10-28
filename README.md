@@ -23,3 +23,61 @@ This web service allows a user to see documents related to a specific course. Th
 * https://lucid.app/lucidchart/b340a24a-37cf-4438-8019-bbbfcdea4bd4/edit?invitationId=inv_2f86983e-661c-4173-9de0-0e0f5a16852e&page=0_0#
 * https://trello.com/b/9YV8Py7a/projet-archi-quality
 * https://teams.microsoft.com/l/team/19%3aX_AucsPKZOsWvLGkeYJAFcYlgdmhqqGO2Km4G0X6W5U1%40thread.tacv2/conversations?groupId=3cccb804-cdc0-4938-95c6-488bca987dcc&tenantId=e3d6f09e-9ba9-4a36-ad75-d9039be4fe29
+
+** Year 2022-2023 
+
+#### A software architecture project
+
+## **Project participants:**
+
+- Kuijpers Nick 20324
+- Baudoin Loisseau 19593
+- Quentin Jadoul 18155
+- Theo Engels 195367
+
+## **Introduction**
+
+As part of the software architecture course, we were asked to develop a mobile application, to help students and teachers connect to their school plateform and access their courses as well as their schedule.  
+The software was developped with the MVC pattern in mind, and is actually in an "Open-Box" extensibility state.  
+We used the "agile" method and divided our project in different sprints.
+
+## 1. User stories
+
+###  1.1. Sprint 1 
+- As a user, I want to access my workspace in order to see the courses.
+- As a user, I want to access a course in order to see its details.
+- As a user, I want to access a an activity of a course in order to have more information.
+
+###  1.2. Sprint 2  
+
+###  1.3. Sprint 3  
+
+###  1.4. Backlog 
+
+## 2. Classes   
+
+The Model classes of the MVC pattern are the following :
+ 
+## 3. Diagrams and mock-ups  
+-  
+## 4. Links  
+-  
+## 5. Releases  
+
+## 6. Continue the project  
+
+### 6.1. Setup your project   
+
+### 6.2. How to modify   
+
+### 6.3. How to implement APIs 
+
+### 6.4. Suggested improvements
+ 
+
+
+
+
+
+
+
