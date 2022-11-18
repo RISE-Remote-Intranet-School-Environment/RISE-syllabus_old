@@ -27,6 +27,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
+			<version>2.7.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.experimental</groupId>
@@ -37,12 +38,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<version>2.7.5</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>2.7.5</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-firestore -->
@@ -50,13 +52,42 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.3.12</version>
+			<version>5.3.23</version>
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.27</version>
+			<version>8.0.30</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>2.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ydespreaux.spring.data</groupId>
+			<artifactId>spring-data-jpa-criteria</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.javydreamercsw</groupId>
+			<artifactId>MySQL-Driver</artifactId>
+			<version>0.1</version>
 		</dependency>
 
 	</dependencies>
